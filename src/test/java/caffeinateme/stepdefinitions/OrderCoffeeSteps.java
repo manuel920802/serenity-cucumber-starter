@@ -2,7 +2,6 @@ package caffeinateme.stepdefinitions;
 
 import caffeinateme.Barista;
 import caffeinateme.Customer;
-
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -16,7 +15,16 @@ public class OrderCoffeeSteps {
     Barista barry = new Barista();
     String cathysOrder;
 
-    @Given("^Cathy is (.*) meters from the coffee shop$")
+    //Essential RegExs:
+    // (.*) Matches anything (including nothing)
+    // (.+) Matches a non-empty string
+    // (\\d) Matches a digit
+    // (\\d*) Matches zero or more digits
+    // (\\d+) Matches one or more digits
+    // (\\w) Matches any "word" character
+    // (\\s) Matches any blank character
+
+    @Given("^Cathy is (\\d+) meters from the coffee shop$")
     public void cathy_is_n_meters_from_the_coffee_shop(Integer distanceInMeters) {
         cathy.setDistanceFromShop(distanceInMeters);
     }
