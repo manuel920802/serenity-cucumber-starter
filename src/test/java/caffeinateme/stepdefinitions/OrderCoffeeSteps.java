@@ -15,14 +15,15 @@ public class OrderCoffeeSteps {
     Barista barry = new Barista();
     String cathysOrder;
 
-    //Essential RegExs:
-    // (.*) Matches anything (including nothing)
-    // (.+) Matches a non-empty string
-    // (\\d) Matches a digit
-    // (\\d*) Matches zero or more digits
-    // (\\d+) Matches one or more digits
-    // (\\w) Matches any "word" character
-    // (\\s) Matches any blank character
+    //Essential RegExs:                             //Cucumber expressions:
+    // (.*) Matches anything (including nothing)    // {int} whole numbers
+    // (.+) Matches a non-empty string              // {float} decimal numbers
+    // (\\d) Matches a digit                        // {string} a string surrounded by quotes: "test"
+    // (\\d*) Matches zero or more digits           // {word} a string with no spaces
+    // (\\d+) Matches one or more digits            // (...) indicates optional text: metre(s)
+    // (\\w) Matches any "word" character           // "/" indicates a list of possible variations: "he/she/they"
+    // (\\s) Matches any blank character            // {order-status} Custom expressions: name = "order-status"
+
 
     @Given("^(.*) is (\\d+) meters? from the coffee shop$")
     public void cathy_is_n_meters_from_the_coffee_shop(String name, Integer distanceInMeters) {
