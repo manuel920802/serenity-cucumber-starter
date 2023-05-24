@@ -24,12 +24,12 @@ public class OrderCoffeeSteps {
     // (\\w) Matches any "word" character
     // (\\s) Matches any blank character
 
-    @Given("^Cathy is (\\d+) meters from the coffee shop$")
-    public void cathy_is_n_meters_from_the_coffee_shop(Integer distanceInMeters) {
+    @Given("^(.*) is (\\d+) meters? from the coffee shop$")
+    public void cathy_is_n_meters_from_the_coffee_shop(String name, Integer distanceInMeters) {
         cathy.setDistanceFromShop(distanceInMeters);
     }
-    @When("^Cathy orders a (.*)$")
-    public void cathy_orders_a(String order) {
+    @When("^Cathy (?:orders|has ordered) a (small|regular|large) (.*)$")
+    public void cathy_orders_a(String size, String order) {
         cathysOrder = order;
         cathy.placesOrderFor(cathysOrder);
     }
